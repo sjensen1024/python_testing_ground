@@ -1,0 +1,6 @@
+original_frames_directory: './original_frames/'
+transparent_frames_directory: './transparent_frames/'
+input_file: './test_input.mp4'
+output_file: './result.mp4'
+save_original_frames: false
+verbose_output: true
