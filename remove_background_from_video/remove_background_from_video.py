@@ -27,15 +27,8 @@ def extract_frames_and_remove_backgrounds(config):
     count = 0
     for frame in original_video.iter_frames():
         count += 1
-        file_name = get_frame_file_name(count, original_video.n_frames)
-        frame_as_image = Image.fromarray(numpy.uint8(frame))
-        if config.get('save_original_frames'):
-            frame_as_image.save(config.get('original_frames_directory') + file_name)
-        transparent_frame = remove(frame_as_image)
-        transparent_frame.save(config.get('transparent_frames_directory') + file_name)
-
-def get_number_of_digits(number):
-    return len(str(abs(number)))
+        frame_file_name = get_frame_file_name(count, original_video.n_frames)
+        export_frame_as_images(frame, config, frame_file_name)
 
 def get_frame_file_name(current_frame, number_of_frames):
     file_name = '_'
@@ -45,5 +38,18 @@ def get_frame_file_name(current_frame, number_of_frames):
         return file_name + str(current_frame) + '.png'
     prefix = '0' * (duration_digits - frame_digits)
     return file_name + prefix + str(current_frame) + '.png'
+
+def export_frame_as_images(frame, config, file_name):
+    original_image = get_frame_as_image(frame)
+    if config.get('save_original_frames'):
+        original_image.save(config.get('original_frames_directory') + file_name)
+    image_without_background = remove(original_image)
+    image_without_background.save(config.get('transparent_frames_directory') + file_name)
+
+def get_frame_as_image(frame):
+    return Image.fromarray(numpy.uint8(frame))
+
+def get_number_of_digits(number):
+    return len(str(abs(number)))
 
 run()
