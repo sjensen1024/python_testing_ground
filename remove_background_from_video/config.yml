@@ -2,6 +2,6 @@ original_frames_directory: './original_frames/'
 transparent_frames_directory: './transparent_frames/'
 input_file: './test_input.mp4'
 output_file: './result.mp4'
-save_original_frames: false
-save_transparent_frames: false
+save_original_frames: true
+save_transparent_frames: true
 verbose_output: true
