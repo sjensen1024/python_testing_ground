@@ -1,7 +1,5 @@
 # Python Testing Ground
 
-This is a simple repo in which I can play around with Python.
-How else will I remember things I learn other than by writing code and storing it somewhere,
-no matter how painfully amateurish my code is?
+This is a simple repo in which I can play around with Python stuff I haven't played around with yet.
 
-But yes... you can feel free to laugh at this.
+Yes... you can feel free to laugh at me having a README for this.
